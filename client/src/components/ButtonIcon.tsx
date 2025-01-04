@@ -6,7 +6,7 @@ const ButtonIcon = ({ children, className, ...props }: ButtonIcon) => {
     <button
       type="button"
       {...props}
-      className={`rounded-full flex items-center justify-center w-14 h-14 shadow-sm hover:shadow-lg transition-all duration-350 hover:text-blue-500 ${className}`}
+      className={`rounded-full flex items-center justify-center w-14 h-14 shadow-sm hover:shadow-lg transition-all duration-300 motion-redude:transition-none hover:text-blue-500 ${className}`}
     >
       {children}
     </button>
