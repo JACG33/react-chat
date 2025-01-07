@@ -1,26 +1,25 @@
-import { ReactNode } from "react";
+// import { ReactNode } from "react";
 import ButtonIcon from "../components/ButtonIcon";
-import ModalFriends from "../components/ModalFriends";
 import {
   IconChatBubbleOutline,
-  IconChatsBubbleOutline,
-  IconContactOutline,
-  IconHamburger,
-  IconPaperClip,
+  // IconHamburger,
 } from "../components/svg";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import ModalProfile from "../components/ModalProfile";
 import { useSideBarProvider } from "../hooks/useSidebarProvider";
 import { useConversationStore } from "../store/conversationStore";
 import ChatSecction from "../components/chat/ChatSecction";
 
 type MessageLayout = {
-  children: ReactNode;
+  // children: ReactNode;
 };
 
-const MessageLayout: React.FC<MessageLayout> = ({ children }) => {
+const MessageLayout: React.FC<MessageLayout> = () => {
   const { openSeccion, setOpenSecction } = useSideBarProvider();
   const StatusChat = useConversationStore(state => state.status)
+  const openChat = useConversationStore(stae => stae.setConversation)
+
+  const hdleOpenChat = (name: string, url: string) => { openChat({ name, url }) }
 
   return (
     <div
@@ -29,38 +28,13 @@ const MessageLayout: React.FC<MessageLayout> = ({ children }) => {
     >
       <div className="relative">
         <aside
-          className={`w-20 grid grid-rows-[40px_1fr_60px] h-full gap-2 items-start justify-center py-2 relative z-20 ${openSeccion ? "shadow-[10px_0px_35px_-15px_rgba(0,0,0,0.15)]" : ""
+          className={`w-20 grid grid-rows-[60px_1fr_60px] h-full gap-2 items-start justify-center py-2 relative z-20 ${openSeccion ? "shadow-[10px_0px_35px_-15px_rgba(0,0,0,0.15)]" : ""
             }`}
         >
-          <button
-            type="button"
-            className="flex items-center justify-center rounded-lg shadow-sm py-2 px-3"
-            onClick={() => setOpenSecction(!openSeccion)}
-          >
-            <IconHamburger />
-          </button>
-          <div>
-            <ButtonIcon title="Mesajes">
-              <NavLink to={"/"}>
-                <IconChatBubbleOutline />
-              </NavLink>
-            </ButtonIcon>
-            <ButtonIcon title="Grupos">
-              <NavLink to={"/chatgroup"}>
-                <IconChatsBubbleOutline />
-              </NavLink>
-            </ButtonIcon>
-            <ButtonIcon title="Archivados">
-              <IconPaperClip />
-            </ButtonIcon>
-            <ButtonIcon title="Amigos">
-              <IconContactOutline />
-            </ButtonIcon>
-          </div>
           <ModalProfile />
         </aside>
 
-        {openSeccion && (
+       {/* {openSeccion && (
           <div
             className="w-full h-full fixed bg-black/30 inset-[0px_0px_0px_80px] z-0"
             onClickCapture={() => setOpenSecction(false)}
@@ -73,15 +47,21 @@ const MessageLayout: React.FC<MessageLayout> = ({ children }) => {
             }`}
         >
           {children}
-        </div>
+        </div>*/}
       </div>
       <div className="w-full shadow-lg bg-gray-200 rounded-tl-3xl rounded-bl-3xl">
         {
           !StatusChat && (
             <div className="flex flex-col items-center justify-center h-screen">
               <div className="m-auto flex flex-col items-center justify-center">
-                <span>Inicia un chat</span>
-                <ModalFriends />
+                <span>Unirse al Chat</span>
+                <ButtonIcon title="Mesajes" 
+                  onClick={() => {
+                    hdleOpenChat("message.nombre", "vitejs.svg")
+                  }}
+                >
+                  <IconChatBubbleOutline />
+                </ButtonIcon>
               </div>
             </div>
           )

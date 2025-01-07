@@ -7,7 +7,7 @@ const MessageItem = () => {
   return (
     <>
       {gruposChat.map((message) => (
-        <CardItem key={message.id} img={message.imagen}>
+        <CardItem key={message.id} message={{ imagen: message.imagen, nombre: message.nombre }}>
           <span>{message.nombre}</span>
           <small>{message.descripcion.slice(0, 30)}...</small>
         </CardItem>
