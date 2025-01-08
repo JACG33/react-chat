@@ -12,7 +12,7 @@ export default defineConfig({
         secure:false
       },
       "/socket.io":{
-        target:"https://react-chat-hrxk.onrender.com",
+        target:"http://localhost:3000",
         ws:true,
         secure:true,
         changeOrigin:true

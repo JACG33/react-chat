@@ -2,10 +2,14 @@ import { Server } from "socket.io";
 import express from "express"
 import { createServer } from "node:http"
 import cors from "cors"
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const app = express()
 
 const PORT = process.env.APP_PORT || 3000
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.use(cors())
 app.use(express.json())
@@ -16,6 +20,15 @@ const io = new Server(httpServer, { cors: { origin: "*" } })
 
 let chat = "chat"
 let messages = []
+
+app.use([
+	"/",
+	"/chat"
+], express.static(join(__dirname, "./dist/")))
+
+app.get("*", (req, res) => {
+	res.sendFile(join(__dirname, "./dist/index.html"))
+})
 
 io.on("connection", (socket) => {
 

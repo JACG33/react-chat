@@ -1,0 +1,1 @@
+import{j as s,r as o,A as r}from"./index-D5abt4mp.js";const a=({children:e,...t})=>s.jsx("button",{...t,className:`rounded-md px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white ${t.className}`,children:e}),n=()=>o.useContext(r);export{a as B,n as u};
