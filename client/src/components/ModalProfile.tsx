@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 // import Input from "./form/Input";
 // import Label from "./form/Label";
 import ModalBase from "./ModalBase";
@@ -6,23 +6,23 @@ import { IconUserOutline } from "./svg";
 import Button from "./form/Button";
 import { useAuthProvider } from "../hooks/useAuthProvider";
 
-type FormState = {
-  name: string;
-  username: string;
-  password: string;
-  birthday: string;
-};
+// type FormState = {
+//   name: string;
+//   username: string;
+//   password: string;
+//   birthday: string;
+// };
 
-const initialForm = {
-  name: "",
-  username: "",
-  password: "",
-  birthday: "",
-};
+// const initialForm = {
+//   name: "",
+//   username: "",
+//   password: "",
+//   birthday: "",
+// };
 
 const ModalProfile = () => {
   const { username,hdlUserOut } = useAuthProvider()
-  const [formProfile, setFormProfile] = useState<FormState>(initialForm);
+  // const [formProfile, setFormProfile] = useState<FormState>(initialForm);
   return (
     <ModalBase
       titleButton="Ver Perfil"

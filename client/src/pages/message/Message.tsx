@@ -1,23 +1,23 @@
 import MessageLayout from "../../layouts/MessageLayout";
-import { personas } from "../../examples";
-import CardItem from "../../components/CardItem";
-import { IconChatBubbleSolid } from "../../components/svg";
+// import { personas } from "../../examples";
+// import CardItem from "../../components/CardItem";
+// import { IconChatBubbleSolid } from "../../components/svg";
 import { Navigate } from "react-router-dom";
 import { useAuthProvider } from "../../hooks/useAuthProvider";
 
-const MessageItem = () => {
+// const MessageItem = () => {
  
-  return (
-    <>
-      {personas.map((message) => (
-        <CardItem key={message.id} message={{ imagen: message.imagen, nombre: message.nombre }}>
-          <span>{message.nombre}</span>
-          <small>{message.descripcion.slice(0, 30)}...</small>
-        </CardItem>
-      ))}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {personas.map((message) => (
+//         <CardItem key={message.id} message={{ imagen: message.imagen, nombre: message.nombre }}>
+//           <span>{message.nombre}</span>
+//           <small>{message.descripcion.slice(0, 30)}...</small>
+//         </CardItem>
+//       ))}
+//     </>
+//   );
+// };
 
 const Message = () => {
   const { username } = useAuthProvider()

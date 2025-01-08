@@ -15,7 +15,7 @@ type MessageLayout = {
 };
 
 const MessageLayout: React.FC<MessageLayout> = () => {
-  const { openSeccion, setOpenSecction } = useSideBarProvider();
+  const { openSeccion } = useSideBarProvider();
   const StatusChat = useConversationStore(state => state.status)
   const openChat = useConversationStore(stae => stae.setConversation)
 
